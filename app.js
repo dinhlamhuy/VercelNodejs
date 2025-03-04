@@ -15,6 +15,16 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+let users = [
+    { id: "1", name: "Hui", email: "hui@example.com" },
+    { id: "2", name: "John", email: "john@example.com" },
+  ];
+  
+  // Lấy danh sách người dùng
+  app.get("/api/users", (req, res) => {
+    res.json(users);
+  });
+  
 
 const server = http.createServer(app); // Tạo server HTTP từ Express app
 server.listen(process.env.PORT, () => {
